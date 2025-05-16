@@ -15,9 +15,6 @@
   "keywords": [],
   "author": "wijdan",
   "license": "ISC",
-  "devDependencies": {
-    "prisma": "^6.8.1"
-  },
   "dependencies": {
     "@prisma/client": "^6.8.1",
     "bcrypt": "^6.0.0",
@@ -30,6 +27,7 @@
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.2",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "prisma": "^6.8.1"
   }
 }

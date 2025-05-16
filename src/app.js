@@ -24,8 +24,8 @@ app.get("/", (req, res) => {
   res.send("API is running 🚀");
 });
 
-app.get("*", (req, res) => {
-  res.send("404 - Halaman tidak ada");
-});
+// app.get("/*", (req, res) => {
+//   res.status(404).send({ message: "Halaman tidak ditemukan" });
+// });
 
 module.exports = app;
