@@ -38,9 +38,10 @@ model Wisata {
   lokasi      String
   harga       Int
   tipe        TypeWisata
+  rating      Int
 
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   Bookmark  Bookmark[]
   Sukas     Suka[]

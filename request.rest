@@ -1,5 +1,5 @@
-# Register
-POST http://localhost:5000/api/register
+# Request API
+GET  http://localhost:5000/api/
 Content-Type: application/json
 
 {
