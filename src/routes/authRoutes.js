@@ -17,3 +17,4 @@ router.get("/token", authController.refreshToken);
 router.delete("/logout", authController.logout);
 
 module.exports = router;
+
