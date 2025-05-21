@@ -1,5 +1,5 @@
 # Request API
-GET  http://localhost:5000/api/
+GET  http://localhost:5000/api/?kategori=perairan
 Content-Type: application/json
 
 {
