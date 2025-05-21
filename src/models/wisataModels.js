@@ -1,14 +1,13 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-const tigaWisataTerbaik = () => {
-  const result = prisma.wisata.findMany({
-    take: 3,
+const getAllWisata = async () => {
+  const result = await prisma.wisata.findMany({
     orderBy: {
-      rating: "desc",
+      id_wisata: "desc",
     },
   });
   return result;
 };
 
-module.exports = { tigaWisataTerbaik };
+module.exports = { getAllWisata };

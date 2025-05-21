@@ -16,7 +16,6 @@ datasource db {
 model User {
   id_user       Int      @id @default(autoincrement())
   username      String   @unique
-  email         String   @unique
   password      String
   refresh_token String?  @db.Text
   createdAt     DateTime @default(now())
@@ -24,27 +23,24 @@ model User {
 
   Wisata   Wisata[] // Relasi 1:N ke Wisata
   Bookmark Bookmark[]
-  Suka     Suka[]
   Komentar Komentar[]
 }
 
 model Wisata {
-  id_wisata   Int        @id @default(autoincrement())
-  user        User       @relation(fields: [penulisId], references: [id_user], onDelete: Cascade, onUpdate: Cascade)
-  penulisId   Int
-  nama_wisata String
-  description String
-  imageUrl    String
-  lokasi      String
-  harga       Int
-  tipe        TypeWisata
-  rating      Int
+  id_wisata        Int        @id @default(autoincrement())
+  user             User       @relation(fields: [userId], references: [id_user], onDelete: Cascade, onUpdate: Cascade)
+  userId           Int
+  foto_wisata      String
+  nama_wisata      String
+  lokasi_wisata    String
+  kategori_wisata  KategoriWisata
+  deskripsi_wisata String
+  rating_wisata    Float
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   Bookmark  Bookmark[]
-  Sukas     Suka[]
   Komentars Komentar[]
 }
 
@@ -57,27 +53,19 @@ model Bookmark {
   timestamp   DateTime @default(now())
 }
 
-model Suka {
-  id_like   Int      @id @default(autoincrement())
-  wisata    Wisata   @relation(fields: [wisataId], references: [id_wisata], onDelete: Cascade, onUpdate: Cascade)
-  wisataId  Int
-  user      User     @relation(fields: [userId], references: [id_user], onDelete: Cascade, onUpdate: Cascade)
-  userId    Int
-  like      Boolean
-  timestamp DateTime @default(now())
-}
-
 model Komentar {
-  id_komentar Int      @id @default(autoincrement())
-  wisata      Wisata   @relation(fields: [wisataId], references: [id_wisata], onDelete: Cascade, onUpdate: Cascade)
-  wisataId    Int
-  user        User     @relation(fields: [userId], references: [id_user], onDelete: Cascade, onUpdate: Cascade)
-  userId      Int
-  comment     String
-  timestamp   DateTime @default(now())
+  id_komentar  Int    @id @default(autoincrement())
+  wisata       Wisata @relation(fields: [wisataId], references: [id_wisata], onDelete: Cascade, onUpdate: Cascade)
+  wisataId     Int
+  user         User   @relation(fields: [userId], references: [id_user], onDelete: Cascade, onUpdate: Cascade)
+  userId       Int
+  isi_komentar String @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-enum TypeWisata {
+enum KategoriWisata {
   pegunungan
   perairan
   budaya

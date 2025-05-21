@@ -2,7 +2,7 @@ const Wisata = require("../models/wisataModels");
 
 const homepage = async (req, res) => {
   try {
-    const data = await Wisata.tigaWisataTerbaik();
+    const data = await Wisata.getAllWisata();
     res.status(200).json({
       message: "Data berhasil didapatkan",
       data: data,
