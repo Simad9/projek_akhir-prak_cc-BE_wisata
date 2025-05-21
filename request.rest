@@ -1,5 +1,4 @@
-# Request API
-GET  http://localhost:5000/api/?kategori=perairan
+DELETE  http://localhost:5000/api/5
 Content-Type: application/json
 
 {
@@ -7,6 +6,18 @@ Content-Type: application/json
   "email" : "User123@example.com",
   "password" : "User123",
   "confirm_password": "User123"
+}
+
+###
+POST http://localhost:5000/api/
+Content-Type: application/json
+
+{       
+  "nama_wisata": "Wisata Alam",
+  "lokasi_wisata": "Jawa Barat",
+  "kategori_wisata": "pegunungan",
+  "deskripsi_wisata": "Wisata Alam",
+  "rating_wisata": 4.5
 }
 
 
@@ -22,6 +33,6 @@ POST http://localhost:5000/api/login
 Content-Type: application/json
 
 {
-  "username" : "User",
-  "password" : "User123"
+  "username" : "Wijdan123",
+  "password" : "Wijdan123"
 }

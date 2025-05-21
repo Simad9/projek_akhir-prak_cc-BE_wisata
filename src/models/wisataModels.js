@@ -36,4 +36,33 @@ const getWisataByQuery = async (query) => {
   return result;
 };
 
-module.exports = { getAllWisata, getWisataByQuery };
+const getWisataById = async (id) => {
+  const result = await prisma.wisata.findUnique({
+    where: {
+      id_wisata: Number(id),
+    },
+  });
+  return result;
+};
+
+const deleteWisata = async (id) => {
+  const result = await prisma.wisata.delete({
+    where: {
+      id_wisata: Number(id),
+    },
+  });
+  return result;
+};
+
+const createWisata = async (data) => {
+  const result = await prisma.wisata.create({ data: data });
+  return result;
+};
+
+module.exports = {
+  getAllWisata,
+  getWisataByQuery,
+  getWisataById,
+  deleteWisata,
+  createWisata,
+};

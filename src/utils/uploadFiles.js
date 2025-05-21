@@ -1,7 +1,7 @@
 // utils/uploadFile.js
 const cloudinary = require("../lib/cloudinary");
 
-const uploadToCloudServiceProfilePicture = async (filePath, isImageNews) => {
+const uploadToCloudServiceProfilePicture = async (filePath) => {
   try {
     // Upload ke Claudinary
     const result = await cloudinary.uploader.upload(filePath, {

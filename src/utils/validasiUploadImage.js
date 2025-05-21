@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-const uploadToCloudService = require("./uplaodFiles");
+const uploadToCloudService = require("./uploadFiles"); // ganti dengan fungsi upload ke cloud yang sesuai
 
-const validasiUploadImage = async (fileInput, isImageNews) => {
+const validasiUploadImage = async (fileInput) => {
   try {
     const tempPath = fileInput.path;
     const originalName = fileInput.originalname;
@@ -18,7 +18,7 @@ const validasiUploadImage = async (fileInput, isImageNews) => {
       return res.status(400).json({ message: "File harus di bawah 5MB" });
     }
     // 2. Upload ke cloud (dummy logic, ganti pakai API Cloudinary, Firebase, etc.)
-    const cloudUrl = await uploadToCloudService(tempPath, isImageNews); // ini fungsi async kamu
+    const cloudUrl = await uploadToCloudService(tempPath); // ini fungsi async kamu
     // 3. Hapus file lokal
     fs.unlinkSync(tempPath);
 
