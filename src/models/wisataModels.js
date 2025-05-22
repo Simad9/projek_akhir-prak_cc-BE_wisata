@@ -37,7 +37,7 @@ const getWisataByQuery = async (query) => {
 };
 
 const getWisataById = async (id) => {
-  const result = await prisma.wisata.findUnique({
+  const result = await prisma.wisata.findMany({
     where: {
       id_wisata: Number(id),
     },

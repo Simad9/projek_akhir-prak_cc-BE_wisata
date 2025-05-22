@@ -1,38 +1,6 @@
-DELETE  http://localhost:5000/api/5
+GET   http://localhost:5000/api/bookmark
 Content-Type: application/json
-
-{
-  "username" : "User",
-  "email" : "User123@example.com",
-  "password" : "User123",
-  "confirm_password": "User123"
-}
 
 ###
-POST http://localhost:5000/api/
+DELETE http://localhost:5000/api/bookmark/2
 Content-Type: application/json
-
-{       
-  "nama_wisata": "Wisata Alam",
-  "lokasi_wisata": "Jawa Barat",
-  "kategori_wisata": "pegunungan",
-  "deskripsi_wisata": "Wisata Alam",
-  "rating_wisata": 4.5
-}
-
-
-###
-# Refresh Token 
-GET http://localhost:5000/api/token
-Content-Type: application/json
-
-
-###
-# == Halaman Login ==
-POST http://localhost:5000/api/login
-Content-Type: application/json
-
-{
-  "username" : "Wijdan123",
-  "password" : "Wijdan123"
-}
