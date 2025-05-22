@@ -12,8 +12,7 @@ const wisataController = require("../controllers/wisataControllers");
 // Page : Homepage
 router.get("/", wisataController.homepage);
 router.get("/:id", wisataController.detail);
-
-router.delete("/:id", wisataController.deleteWisata);
 router.post("/", upload.single("foto_wisata"), wisataController.createWisata);
+router.delete("/:id", wisataController.deleteWisata);
 
 module.exports = router;

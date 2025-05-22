@@ -4,15 +4,13 @@ const router = express.Router();
 // Routes
 const authRoute = require("./authRoutes");
 const wisataRoute = require("./wisataroutes");
+const bookmarkRoute = require("./bookmarkRoute");
+const komentarRoute = require("./komentarRoute");
 
 // === Halaman Auth ===
 router.use("/", authRoute);
 router.use("/wisata", wisataRoute);
-
-// Bookmark
-const bookmarkController = require("../controllers/bookmarkControllers");
-router.get("/bookmark", bookmarkController.getBookmark);
-router.post("/bookmark/:id", bookmarkController.addBookmark);
-router.delete("/bookmark/:id", bookmarkController.deleteBookmark);
+router.use("/bookmar", bookmarkRoute);
+router.use("/komentar", komentarRoute);
 
 module.exports = router;

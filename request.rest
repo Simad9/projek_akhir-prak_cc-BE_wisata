@@ -1,6 +1,12 @@
-GET   http://localhost:5000/api/bookmark
+PUT   http://localhost:5000/api/komentar/3
 Content-Type: application/json
+
+{
+  "komentar": "Ini adalah komentar edit kedua"
+}
+
 
 ###
 DELETE http://localhost:5000/api/bookmark/2
 Content-Type: application/json
+
