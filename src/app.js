@@ -26,16 +26,6 @@ app.options("*", cors(corsOptions)); // Menanggapi preflight requests
 app.use(cookieParser());
 app.use(express.json());
 
-// Routes untuk debug
-app.get("/status", (req, res) => {
-  res.json({
-    message: "API is running 🚀",
-    port: process.env.PORT || "not set",
-    accessTokenSecret: process.env.ACCESS_TOKEN_SECRET ? "Present" : "Missing",
-    databaseUrl: process.env.DATABASE_URL ? "Present" : "Missing",
-  });
-});
-
 // Routes
 const Routes = require("./routes/routes.js");
 app.use("/api/", Routes);
