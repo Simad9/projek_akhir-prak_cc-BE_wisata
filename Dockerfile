@@ -8,8 +8,11 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --only=production
 
+# Prisma Generation
+RUN npx prisma generate
+
 # Copy rest of the source code
 COPY . .
 
 # Start the app
-CMD ["node", "server.js"]
+CMD ["node", "index.js"]
