@@ -23,3 +23,9 @@
        = Tech Stack Frontend = React + TailwindCSS, Tech Stack Backend = Express + ORM Prisma
 - [ ] Dokumentasi API\
        = https://documenter.getpostman.com/view/30150423/2sB2qZENJW dokumentasi akan ada disitu
+
+### Catatan untuk DB di VM
+```
+ALTER USER 'admin'@'%' IDENTIFIED BY 'projekakhir'; GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;
+```
+Buat ganti password di db vm nya

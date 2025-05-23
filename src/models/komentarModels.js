@@ -4,14 +4,13 @@ const prisma = new PrismaClient();
 const getKomentarByWisata = async (wisataId) => {
   const result = await prisma.komentar.findMany({
     where: {
-      wisata_id: wisataId,
+      wisataId: Number(wisataId),
     },
     include: {
       user: {
         select: {
           id_user: true,
           username: true,
-          email: true,
         },
       },
     },

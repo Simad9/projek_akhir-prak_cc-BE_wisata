@@ -3,6 +3,8 @@ const Komentar = require("../models/komentarModels");
 const getKomentarByWisata = async (req, res) => {
   try {
     const wisataId = req.params.wisataId;
+    console.log(wisataId);
+
     const result = await Komentar.getKomentarByWisata(wisataId);
     res.status(200).json({
       status: "success",
@@ -63,7 +65,7 @@ const deleteKomentarByWisata = async (req, res) => {
       message: error.message,
     });
   }
-}
+};
 
 const updateKomentarByWisata = async (req, res) => {
   try {
@@ -75,7 +77,11 @@ const updateKomentarByWisata = async (req, res) => {
       isi_komentar: req.body.komentar,
     };
 
-    const result = await Komentar.updateKomentarByWisata(komentarId, userId, dataForm);
+    const result = await Komentar.updateKomentarByWisata(
+      komentarId,
+      userId,
+      dataForm
+    );
     res.status(200).json({
       status: "success",
       message: "Berhasil memperbarui data komentar",
@@ -93,5 +99,5 @@ module.exports = {
   getKomentarByWisata,
   addKomentarByWisata,
   deleteKomentarByWisata,
-  updateKomentarByWisata
+  updateKomentarByWisata,
 };

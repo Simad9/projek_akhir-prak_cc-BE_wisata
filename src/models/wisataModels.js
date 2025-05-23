@@ -7,6 +7,8 @@ const getAllWisata = async () => {
       id_wisata: true,
       foto_wisata: true,
       nama_wisata: true,
+      rating_wisata: true,
+      kategori_wisata: true,
     },
     orderBy: {
       id_wisata: "desc",
@@ -59,10 +61,21 @@ const createWisata = async (data) => {
   return result;
 };
 
+const updateWisata = async (id, data) => {
+  const result = await prisma.wisata.update({
+    where: {
+      id_wisata: Number(id),
+    },
+    data: data,
+  });
+  return result;
+};
+
 module.exports = {
   getAllWisata,
   getWisataByQuery,
   getWisataById,
   deleteWisata,
   createWisata,
+  updateWisata,
 };

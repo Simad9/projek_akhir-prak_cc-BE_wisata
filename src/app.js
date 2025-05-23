@@ -13,7 +13,7 @@ dotenv.config();
 const corsOptions = {
   origin: [
     "http://localhost:3000", // Tambahkan localhost untuk pengembangan lokal
-    // Ganti dengan URL frontend yang terdeploy jika ada
+    "https://tours-frontend-prakcc-dot-projek-tcc-1.uc.r.appspot.com/", // url deploy frontend
   ],
   credentials: true, // Memungkinkan penggunaan cookies
   methods: ["GET", "POST", "PUT", "DELETE"],
@@ -41,4 +41,3 @@ app.use((req, res, next) => {
 });
 
 module.exports = app;
-
