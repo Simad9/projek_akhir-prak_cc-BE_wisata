@@ -6,17 +6,14 @@ async function seedUsers() {
   const users = [
     {
       username: "Jhondoe123",
-      email: "4Tm6r@example.com",
       password: bcrypt.hashSync("Jhondoe123", 5),
     },
     {
       username: "Wijdan123",
-      email: "asdas@example.com",
       password: bcrypt.hashSync("Wijdan123", 5),
     },
     {
       username: "Akbar123",
-      email: "123asd@example.com",
       password: bcrypt.hashSync("Akbar123", 5),
     },
   ];

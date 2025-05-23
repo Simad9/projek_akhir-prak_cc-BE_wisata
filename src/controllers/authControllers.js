@@ -13,12 +13,13 @@ const register = async (req, res) => {
   const salt = await bycrypt.genSalt();
   const hashPassword = await bycrypt.hash(password, salt);
 
+  const dataForm = {
+    username,
+    password: hashPassword,
+  };
+
   try {
-    const data = await Auth.register({
-      username,
-      email,
-      password: hashPassword,
-    });
+    const data = await Auth.register(dataForm);
 
     res.status(200).json({
       message: "Register Berhasil",
@@ -50,12 +51,12 @@ const login = async (req, res) => {
 
     // JWT Sign
     const accessToken = jwt.sign(
-      { userId: data.id_user, username: username},
+      { userId: data.id_user, username: username },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "1h" }
     );
     const refreshToken = jwt.sign(
-      { userId: data.id_user, username: username},
+      { userId: data.id_user, username: username },
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: "1d" }
     );
@@ -73,6 +74,7 @@ const login = async (req, res) => {
     return res.json({
       accessToken,
       userId: data.id_user,
+      username: data.username,
     });
   } catch (error) {
     res.status(500).json({
@@ -103,7 +105,7 @@ const refreshToken = async (req, res) => {
         const accessToken = jwt.sign(
           { userId, username, role },
           process.env.ACCESS_TOKEN_SECRET,
-          { expiresIn: "20s" }
+          { expiresIn: "1h" }
         );
 
         res.json({ accessToken });

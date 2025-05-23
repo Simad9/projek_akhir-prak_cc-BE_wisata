@@ -2,8 +2,7 @@ const Bookmark = require("../models/bookmarkModels");
 
 const addBookmark = async (req, res) => {
   try {
-    // const userId = req.user.id;
-    const userId = 1;
+     const userId = req.userId;
     const wisataId = req.params.id;
 
     const data = await Bookmark.addBookmark(userId, wisataId);
@@ -22,8 +21,7 @@ const addBookmark = async (req, res) => {
 const deleteBookmark = async (req, res) => {
   try {
     const { id } = req.params;
-    // const userId = req.user.id;
-    const userId = 1; // dummy user id
+      const userId = req.userId;// dummy user id
     console.log(id);
     const data = await Bookmark.deleteBookmark(id, userId);
     res.status(200).json({
@@ -40,8 +38,7 @@ const deleteBookmark = async (req, res) => {
 
 const getBookmark = async (req, res) => {
   try {
-    // const userId = req.user.id;
-    const userId = 1; // dummy user id
+      const userId = req.userId;
     const data = await Bookmark.getBookmark(userId);
     res.status(200).json({
       message: "Data berhasil didapatkan",

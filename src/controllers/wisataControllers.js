@@ -67,21 +67,28 @@ const deleteWisata = async (req, res) => {
 
 const createWisata = async (req, res) => {
   try {
-    // const userId = req.user.id;
-    const userId = 1; // dummy user id
+    const userId = req.userId;
+    const {
+      nama_wisata,
+      deskripsi_wisata,
+      rating_wisata,
+      kategori_wisata,
+      lokasi_wisata,
+    } = req.body;
+    const foto_wisata = await validasiUploadImage(req.file);
 
     const dataForm = {
-      userId: userId,
-      nama_wisata: req.body.nama_wisata,
-      deskripsi_wisata: req.body.deskripsi_wisata,
-      rating_wisata: parseFloat(req.body.rating_wisata),
-      kategori_wisata: req.body.kategori_wisata,
-      lokasi_wisata: req.body.lokasi_wisata,
+      userId,
+      nama_wisata,
+      deskripsi_wisata,
+      rating_wisata: parseFloat(rating_wisata),
+      kategori_wisata,
+      lokasi_wisata,
+      foto_wisata,
     };
 
-    dataForm.foto_wisata = await validasiUploadImage(req.file);
+    console.log(dataForm);
 
-    // Query Data
     const data = await Wisata.createWisata(dataForm);
     res.status(201).json({
       message: "Data berhasil ditambahkan",

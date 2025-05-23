@@ -7,8 +7,8 @@ const verifyToken = require("../middlewares/verifyToken");
 // Bookmark
 const bookmarkController = require("../controllers/bookmarkControllers");
 
-router.get("/bookmark", verifyToken, bookmarkController.getBookmark);
-router.post("/bookmark/:id", verifyToken, bookmarkController.addBookmark);
-router.delete("/bookmark/:id", verifyToken, bookmarkController.deleteBookmark);
+router.get("/", verifyToken, bookmarkController.getBookmark);
+router.post("/:id", verifyToken, bookmarkController.addBookmark);
+router.delete("/:id", verifyToken, bookmarkController.deleteBookmark);
 
 module.exports = router;

@@ -22,8 +22,7 @@ const getKomentarByWisata = async (req, res) => {
 const addKomentarByWisata = async (req, res) => {
   try {
     const wisataId = req.params.wisataId;
-    // const userId = req.user.id_user;
-    const userId = 1; // For testing purposes, replace with req.user.id_user in production
+    const userId = req.userId;
 
     const dataForm = {
       userId,
@@ -50,8 +49,7 @@ const addKomentarByWisata = async (req, res) => {
 const deleteKomentarByWisata = async (req, res) => {
   try {
     const komentarId = req.params.komentarId;
-    // const userId = req.user.id_user;
-    const userId = 1; // For testing purposes, replace with req.user.id_user in production
+    const userId = req.userId;
 
     const result = await Komentar.deleteKomentarByWisata(komentarId, userId);
     res.status(200).json({
@@ -70,8 +68,7 @@ const deleteKomentarByWisata = async (req, res) => {
 const updateKomentarByWisata = async (req, res) => {
   try {
     const komentarId = req.params.komentarId;
-    // const userId = req.user.id_user;
-    const userId = 1; // For testing purposes, replace with req.user.id_user in production
+    const userId = req.userId;
 
     const dataForm = {
       isi_komentar: req.body.komentar,

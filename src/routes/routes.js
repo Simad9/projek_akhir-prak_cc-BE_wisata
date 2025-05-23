@@ -10,7 +10,7 @@ const komentarRoute = require("./komentarRoute");
 // === Halaman Auth ===
 router.use("/", authRoute);
 router.use("/wisata", wisataRoute);
-router.use("/bookmar", bookmarkRoute);
+router.use("/bookmark", bookmarkRoute);
 router.use("/komentar", komentarRoute);
 
 module.exports = router;
