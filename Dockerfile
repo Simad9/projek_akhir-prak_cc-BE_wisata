@@ -1,8 +1,19 @@
-FROM node:20-alpine
+# Use official Node.js LTS image
+FROM node:18-alpine
+
+# Set working directory inside container
 WORKDIR /app
-COPY package*.json ./
-RUN npm install --production
-RUN npx prisma generate
+
+# Install dependencies (including Prisma client)
+COPY package.json package-lock.json ./
+RUN npm ci --only=production
+
+# Copy Prisma schema and generated client files
+COPY prisma ./prisma
+COPY node_modules/.prisma ./node_modules/.prisma
+
+# Copy rest of the source code
 COPY . .
-EXPOSE 5000
+
+# Start the app
 CMD ["node", "server.js"]

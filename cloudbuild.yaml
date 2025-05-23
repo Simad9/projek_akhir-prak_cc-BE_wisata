@@ -12,13 +12,13 @@ steps:
         "--cache-from",
         "gcr.io/$PROJECT_ID/prak-tcc-projek-akhir",
         "-t",
-        "gcr.io/$PROJECT_ID/prak-tcc-projek-akhir",
+        "gcr.io/$PROJECT_ID/prak-tcc-projek-akhir:${SHORT_SHA}",
         ".",
       ]
 
   # 3. Push ke Container Registry / Artifact Registry
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/$PROJECT_ID/prak-tcc-projek-akhir"]
+    args: ["push", "gcr.io/$PROJECT_ID/prak-tcc-projek-akhir:${SHORT_SHA}"]
 
   # 4. Deploy ke Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
@@ -28,7 +28,7 @@ steps:
         "deploy",
         "prak-tcc-projek-akhir",
         "--image",
-        "gcr.io/$PROJECT_ID/prak-tcc-projek-akhir",
+        "gcr.io/$PROJECT_ID/prak-tcc-projek-akhir:${SHORT_SHA}",
         "--timeout",
         "1000s",
         "--port",
