@@ -50,12 +50,12 @@ const login = async (req, res) => {
 
     // JWT Sign
     const accessToken = jwt.sign(
-      { userId: data.id_user, username: username, role: data.role },
+      { userId: data.id_user, username: username},
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "20s" }
+      { expiresIn: "1h" }
     );
     const refreshToken = jwt.sign(
-      { userId: data.id_user, username: username, role: data.role },
+      { userId: data.id_user, username: username},
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: "1d" }
     );
