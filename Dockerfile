@@ -11,6 +11,6 @@ COPY . .
 # Jalankan prisma generate untuk generate prisma client
 RUN npx prisma generate
 
-EXPOSE 5000
+EXPOSE 4000
 
 CMD ["node", "index.js"]
