@@ -1,14 +1,3 @@
-# Gambaran Kasar
-
-1. Halaman Login
-2. Halaman Register
-3. Halaman Dashboard
-
-- List Populer
-- Wisata Kategori
-
-4. List Wisata
-
 ### Teknis Project Akhir :
 
 - [ ] Database yang digunakan harus MySQL (VM/Cloud SQL), dengan minimal tiga tabel, salah satunya wajib untuk autentikasi pengguna (user).\
@@ -24,8 +13,14 @@
 - [ ] Dokumentasi API\
        = https://documenter.getpostman.com/view/30150423/2sB2qZENJW dokumentasi akan ada disitu
 
+### Catatan Branch Developer
+
+Nanti main untuk CI/CD nya, dev kalo misal ada perubahan, nanti tinggal di push.
+
 ### Catatan untuk DB di VM
+
 ```
 ALTER USER 'admin'@'%' IDENTIFIED BY 'projekakhir'; GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;
 ```
+
 Buat ganti password di db vm nya
