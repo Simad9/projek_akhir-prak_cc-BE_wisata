@@ -8,10 +8,6 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --only=production
 
-# Copy Prisma schema and generated client files
-COPY prisma ./prisma
-COPY node_modules/.prisma ./node_modules/.prisma
-
 # Copy rest of the source code
 COPY . .
 
