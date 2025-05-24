@@ -12,9 +12,6 @@ COPY . .
 RUN npx prisma generate
 RUN npx prisma migrate deploy
 
-# Set environment variable untuk database
-ENV DATABASE_URL="mysql://root:@34.44.40.36:3306/projek_akhir_cc"
-
 EXPOSE 5000
 
 CMD ["node", "index.js"]
