@@ -32,7 +32,7 @@ steps:
         "--timeout",
         "1000s",
         "--port",
-        "4000", # optional, sesuai port app listen
+        "5000", # optional, sesuai port app listen
         "--region",
         "us-central1",
         "--allow-unauthenticated",
