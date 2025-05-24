@@ -3,7 +3,7 @@ const router = express.Router();
 
 // Routes
 const authRoute = require("./authRoutes");
-const wisataRoute = require("./wisataRoutes");
+const wisataRoute = require("./wisataroutes");
 const bookmarkRoute = require("./bookmarkRoute");
 const komentarRoute = require("./komentarRoute");
 
