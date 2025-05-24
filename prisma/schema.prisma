@@ -27,8 +27,8 @@ model User {
 }
 
 model Wisata {
-  id_wisata        Int        @id @default(autoincrement())
-  user             User       @relation(fields: [userId], references: [id_user], onDelete: Cascade, onUpdate: Cascade)
+  id_wisata        Int            @id @default(autoincrement())
+  user             User           @relation(fields: [userId], references: [id_user], onDelete: Cascade, onUpdate: Cascade)
   userId           Int
   foto_wisata      String
   nama_wisata      String
@@ -49,7 +49,7 @@ model Bookmark {
   user        User     @relation(fields: [userId], references: [id_user], onDelete: Cascade, onUpdate: Cascade)
   userId      Int
   wisata      Wisata   @relation(fields: [wisataId], references: [id_wisata], onDelete: Cascade, onUpdate: Cascade)
-  wisataId    Int
+  wisataId    Int      @unique
   timestamp   DateTime @default(now())
 }
 
