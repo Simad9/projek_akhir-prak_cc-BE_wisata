@@ -11,4 +11,7 @@ router.get("/", verifyToken, bookmarkController.getBookmark);
 router.post("/:id", verifyToken, bookmarkController.addBookmark);
 router.delete("/:id", verifyToken, bookmarkController.deleteBookmark);
 
+// Gak dipake
+router.put("/:id", verifyToken, bookmarkController.updateBookmark);
+
 module.exports = router;

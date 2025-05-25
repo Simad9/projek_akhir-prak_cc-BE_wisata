@@ -41,8 +41,21 @@ const getBookmark = async (userId) => {
   return result;
 };
 
+const updateBookmark = async (id, userId) => {
+  const result = await prisma.bookmark.update({
+    where: {
+      id_bookmark: Number(id),
+    },
+    data: {
+      userId: Number(userId),
+    },
+  });
+  return result;
+};
+
 module.exports = {
   addBookmark,
   deleteBookmark,
   getBookmark,
+  updateBookmark,
 };

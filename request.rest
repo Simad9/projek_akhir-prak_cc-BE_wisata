@@ -1,14 +1,13 @@
-POST   http://localhost:5000/api/register
+POST https://prak-tcc-projek-akhir-13926268988.us-central1.run.app/api/login
 Content-Type: application/json
 
 {
-  "username": "testuser",
-  "password": "testpassword",
-  "confirm_password": "testpassword"
+  "username": "User",
+  "password": "User123",
 }
 
-
-###
-DELETE http://localhost:5000/api/bookmark/2
+### Get All Wisata
+GET http://localhost:5000/api/wisata/
 Content-Type: application/json
+Authorization: Bearer 
 

@@ -22,6 +22,10 @@ Yang sudah kelar :
 6. Jalankan perintah `npm run dev`
 7. Buka browser Anda dan akses `http://localhost:5000/`
 
+### Dokumentasi API by Postman
+
+- [Go to Dokumentation API](https://documenter.getpostman.com/view/30150423/2sB2qZENJW)
+
 ### Detail Tambahan ada di
 
 - [Dokumentasi Tambahan](TODO.MD)
