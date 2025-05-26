@@ -12,8 +12,8 @@ async function main() {
   // await prisma.user.deleteMany();
   // await prisma.wisata.deleteMany();
   // Seeder
-  await seedUsers();
-  await seedWisata();
+  // await seedUsers();
+  // await seedWisata();
 }
 
 main()
